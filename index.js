@@ -1,5 +1,13 @@
+const express = require('express');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+
+const app = express(); // Adicionando a instância do Express
+
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server running on port ${port}`);
+});
 
 const client = new Client({
     authStrategy: new LocalAuth() // Salva a sessão localmente
